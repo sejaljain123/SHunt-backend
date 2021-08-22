@@ -46,7 +46,7 @@ const start = async () => {
       }
     });
   });
-  server.listen(5000, () => {
+  server.listen(process.env.PORT || 5000, () => {
     console.log(`app is running on port 5000`);
   });
   // script.insertData();
