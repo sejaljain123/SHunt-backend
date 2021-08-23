@@ -38,20 +38,19 @@ const userBranch = async (req, res) => {
   }
 };
 
-const searchBranch = async (req,res)=>{
-  try{
-    const {branch}=req.query
-    const data = await Branch.find({branchName:branch})
+const searchBranch = async (req, res) => {
+  try {
+    const { branch } = req.query;
+    const data = await Branch.find({ branchName: new RegExp(`${branch}`, 'gi') });
     return res.json(data);
-  }
-  catch (e) {
+  } catch (e) {
     console.log(e);
   }
-}
+};
 
 module.exports = {
   getAllBranches,
   listBranches,
   userBranch,
-  searchBranch
+  searchBranch,
 };
