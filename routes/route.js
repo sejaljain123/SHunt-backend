@@ -11,5 +11,6 @@ router.get('/listallbranches', auth, branch.listBranches);
 router.get('/branch', auth, branch.userBranch);
 router.get('/notifications', auth, notify.getNotifications);
 router.get('/adminnotifications', auth, notify.adminNotifications);
+router.get('/search',auth,branch.searchBranch)
 
 module.exports = router;

@@ -10,7 +10,10 @@ const server = http.createServer(app);
 const { Server } = require('socket.io');
 const io = new Server(server, {
   cors: {
-    origin: 'https://shunt-frontend.vercel.app',
+    origin:
+      process.env.NODE_ENV === 'production'
+        ? 'https://shunt-frontend.vercel.app'
+        : 'http://localhost:3000',
     methods: ['GET', 'POST'],
     credentials: true,
   },
